@@ -1,0 +1,20 @@
+<h2>Add a new product</h2>
+<form (submit)="onSubmit()" *ngIf="editProd">
+    {{editProd | json}}
+    <div class="form-group">
+        <label for="">Name</label>
+        <p class="small text-danger" *ngIf="err?.name">{{err.name.message}}</p>
+        <input type="text" class="form-control w-50" name="editProd.name" [(ngModel)]="editProd.name" value="{{editProd.name}}">
+    </div>
+    <div class="form-group">
+        <label for="">Price</label>
+        <p class="small text-danger" *ngIf="err?.price">{{err.price.message}}</p>
+        <input type="number" class="form-control w-50" name="editProd.price" [(ngModel)]="editProd.price">
+    </div>
+    <div class="form-group">
+            <label for="">Image URL</label>
+            <p class="small text-danger" *ngIf="err?.img">{{err.img.message}}</p>
+            <input type="text" class="form-control w-50" name="editProd.img" [(ngModel)]="editProd.img">
+        </div>
+        <button type="submit">Submit</button>
+</form>
